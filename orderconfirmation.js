@@ -1,0 +1,36 @@
+let timerVar = setInterval(() => {
+    if (typeof SalesforceInteractions != 'undefined') {
+        
+        SalesforceInteractions.init({
+   
+        }).then(() => {
+              
+            SalesforceInteractions.initSitemap({
+                global: {},
+                pageTypeDefault: {
+                    name: "TicketmasterDefault",
+                },
+                pageTypes: [
+                    {
+                        name: 'Confirmation TicketMaster Page',
+                        interaction: {
+                            name: SalesforceInteractions.OrderInteractionName.Purchase,
+                            order: {
+                                id: '$order_id$',
+                                totalValue: '$face_value$',
+                                currency: "USD",
+                                lineItems: [{
+                                    catalogObjectType: 'Product',
+                                    catalogObjectId: '$event_id$',
+                                    quantity: $ticket_quantity$,
+                                    price: ($face_value$ / $ticket_quantity$).toFixed(2)
+                                }]
+                            }
+                        },
+                        isMatch: () => true
+                    },
+                ]
+            });   // Initializes the Sitemap
+        });
+    }
+}, 2000)
