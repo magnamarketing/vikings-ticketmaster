@@ -14,12 +14,19 @@
                     },
                     pageTypes: [
                         {
+                            name: 'TicketMaster Vikings Home - Branded Page',
+                            interaction: {
+                                name: 'TicketMaster Vikings Home - Branded Page'
+                            },
+                            isMatch: () => /brand/.test(window.location.href)
+                        },
+                        {
                             name: 'TicketMaster Vikings Home Page',
                             interaction: {
                                 name: 'TicketMaster Vikings Home Page'
                             },
                             isMatch: () => true
-                        },
+                        }
                     ]
                 });   // Initializes the Sitemap
             });
