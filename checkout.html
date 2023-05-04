@@ -14,6 +14,13 @@
                     },
                     pageTypes: [
                         {
+                            name: 'Checkout TicketMaster - Branded Page',
+                            interaction: {
+                                name: 'Checkout TicketMaster - Branded Page'
+                            },
+                            isMatch: () => /brand/.test(window.location.href)
+                        },
+                        {
                             name: 'Checkout TicketMaster Page',
                             interaction: {
                                 name: 'Checkout TicketMaster Page'
