@@ -14,6 +14,17 @@
                     },
                     pageTypes: [
                         {
+                            name: 'TicketMaster Vikings Specific Event - Branded Page',
+                            interaction: {
+                                name: SalesforceInteractions.CatalogObjectInteractionName.ViewCatalogObject,
+                                catalogObject: {
+                                    type: 'Product',
+                                    id: '$event_id$'
+                                }
+                            },
+                            isMatch: () => /brand/.test(window.location.href)
+                        },
+                        {
                             name: 'TicketMaster Vikings Specific Event Page',
                             interaction: {
                                 name: SalesforceInteractions.CatalogObjectInteractionName.ViewCatalogObject,
